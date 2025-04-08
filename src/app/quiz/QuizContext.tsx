@@ -15,13 +15,22 @@ interface QuizInputContextType {
   quizInput: QuizInput;
   setQuizInput: React.Dispatch<React.SetStateAction<QuizInput>>;
   quiz?: Quiz;
-  setQuiz?: React.Dispatch<React.SetStateAction<Quiz | undefined>>;
+  setQuiz: React.Dispatch<React.SetStateAction<Quiz | undefined>>;
 }
 
 const QuizContext = createContext<QuizInputContextType>({
   quizInput: initialQuizInput,
   setQuizInput: () => {},
+  setQuiz: () => {},
 });
+
+export const useQuizContext = () => {
+  const context = useContext(QuizContext);
+  if (!context) {
+    throw new Error("useQuizContext must be used within a QuizContextProvider");
+  }
+  return context;
+};
 
 export default function QuizContextProvider({
   children,
