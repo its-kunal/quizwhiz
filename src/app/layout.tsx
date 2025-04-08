@@ -18,6 +18,23 @@ export const metadata: Metadata = {
   title: "QuizWhiz",
   description:
     "Test your knowledge and learn something new with engaging quizzes on various topics.",
+  keywords: [
+    "quiz",
+    "quiz app",
+    "quiz game",
+    "knowledge",
+    "learning",
+    "education",
+    "fun",
+    "trivia",
+    "test your knowledge",
+    "engaging quizzes",
+    "various topics",
+    "interactive quizzes",
+    "knowledge testing",
+    "educational quizzes",
+    "fun quizzes",
+  ],
 };
 
 export default function RootLayout({
