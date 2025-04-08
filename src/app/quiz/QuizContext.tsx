@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useState } from "react";
-import type { Quiz, QuizInput, Question } from "@/types/index";
+import type { Quiz, QuizInput } from "@/types/index";
 
 const initialQuizInput: QuizInput = {
   content: "",

@@ -2,7 +2,6 @@
 import { generateQuiz } from "@/actions/generateQuiz";
 import { useState } from "react";
 import QuizContextProvider, { useQuizContext } from "./QuizContext";
-import { Quiz } from "@/types";
 import QuizComponent from "@/components/Quiz";
 
 interface QuizInput {
