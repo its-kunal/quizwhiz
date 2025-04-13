@@ -21,6 +21,7 @@ function QuizFormUtil() {
     difficulty: "medium",
     subject: "",
   });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -40,17 +41,24 @@ function QuizFormUtil() {
     setQuizInput(formData);
     // Handle form submission logic here
     const { content, difficulty, numberOfQuestions, subject, topic } = formData;
-    const response = await generateQuiz({
-      content,
-      difficulty,
-      numberOfQuestions,
-      subject,
-      topic,
-    });
-    setQuiz(response);
-    console.log("Quiz generated:", response);
-    console.log("Quiz generated:", response.title);
-    console.log("Quiz:", quiz);
+    setLoading(true);
+    try {
+      const response = await generateQuiz({
+        content,
+        difficulty,
+        numberOfQuestions,
+        subject,
+        topic,
+      });
+      setQuiz(response);
+      console.log("Quiz generated:", response);
+      console.log("Quiz generated:", response.title);
+      console.log("Quiz:", quiz);
+    } catch (error: any) {
+      console.error("Error generating quiz:", error);
+    } finally {
+      setLoading(false);
+    }
   };
   return (
     <div className="w-full max-w-2xl mx-auto p-6">
@@ -166,6 +174,7 @@ function QuizFormUtil() {
                 <button
                   type="submit"
                   className="w-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white py-2 px-4 rounded-md text-sm font-medium transition-colors duration-200"
+                  disabled={loading}
                 >
                   Generate Quiz
                 </button>
