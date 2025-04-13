@@ -173,7 +173,7 @@ function QuizFormUtil() {
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white py-2 px-4 rounded-md text-sm font-medium transition-colors duration-200"
+                  className="w-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white py-2 px-4 rounded-md text-sm font-medium transition-colors duration-200 disabled:bg-gray-500 disabled:hover:bg-gray-400"
                   disabled={loading}
                 >
                   Generate Quiz
