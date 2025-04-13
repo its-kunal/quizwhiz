@@ -54,7 +54,7 @@ function QuizFormUtil() {
       console.log("Quiz generated:", response);
       console.log("Quiz generated:", response.title);
       console.log("Quiz:", quiz);
-    } catch (error: any) {
+    } catch (error) {
       console.error("Error generating quiz:", error);
     } finally {
       setLoading(false);
